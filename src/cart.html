@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/public.css">
+</head>
+
+<body id="cart">
+    <header style="overflow: visible;">
+        <div class="content">
+            <img src="http://i1.mbscss.com/img/moonbasa/2014/02/25/logo.jpg" alt="">
+            <p>9年品质保证&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;7天无条件退换货&nbsp;&nbsp;&nbsp;&nbsp;|</p>
+            <ul>
+                <li>欢迎光临梦芭莎!</li>
+                <li><a href="http://10.31.155.75/mbs/src/login.html">登录</a></li>
+                <li><a href="http://10.31.155.75/mbs/src/register.html">注册</a></li>
+                <li><a href="">帮助中心</a></li>
+                <li><a href="">微信</a></li>
+                <li><span
+                        style="background: url(img/phone.jpg) no-repeat;width: 10px;height: 15px;display: inline-block;margin-right: 5px;vertical-align: middle;"></span>
+                    <a href="">手机版</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="content">
+        <div id="title">
+            <input type="checkbox" id="" checked>
+            <p>全部</p>
+            <p>商品</p>
+            <p>单价</p>
+            <p>数量</p>
+            <p>金额小计</p>
+            <p>操作</p>
+        </div>
+        <section class="good_content">
+            <div>
+                <div class="title">
+                    <p>以下商品由 <span>海谜璃旗舰店</span> 发货 免配送费</p>
+                </div>
+                <div class="shop_content">
+                    <input type="checkbox" checked>
+                    <div class="good_info">
+                        <img src="http://vp2.mbsimg.com/ProductImg/97/1903/large/970156700-CL01-01-L.jpg" alt="">
+                        <p>夏装短袖t恤女韩版修身显瘦V领打底衫上衣HBF1004</p>
+                        <div>
+                            <p>品牌:索然</p>
+                            <p>尺寸:S</p>
+                            <p>颜色:粉色</p>
+                        </div>
+                    </div>
+                    <p class="single_price">￥118</p>
+                    <div class="number">
+                        <button class="del">-</button>
+                        <input type="text" class="good_num" value="1">
+                        <button class="add">+</button>
+                    </div>
+                    <p class="total_price">￥118</p>
+                    <div class="opecation">
+                        <button class="edit">修改</button>
+                        <button class="remove">移除</button>
+                    </div>
+                </div>
+                <div class="shop_content">
+                    <input type="checkbox" checked>
+                    <div class="good_info">
+                        <img src="http://vp2.mbsimg.com/ProductImg/97/1903/large/970156700-CL01-01-L.jpg" alt="">
+                        <p>夏装短袖t恤女韩版修身显瘦V领打底衫上衣HBF1004</p>
+                        <div>
+                            <p>品牌:索然</p>
+                            <p>尺寸:S</p>
+                            <p>颜色:粉色</p>
+                        </div>
+                    </div>
+                    <p class="single_price">￥118</p>
+                    <div class="number">
+                        <button class="del">-</button>
+                        <input type="text" class="good_num" value="1">
+                        <button class="add">+</button>
+                    </div>
+                    <p class="total_price">￥118</p>
+                    <div class="opecation">
+                        <button class="edit">修改</button>
+                        <button class="remove">移除</button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="title">
+                    <p>以下商品由 <span>海谜璃旗舰店</span> 发货 免配送费</p>
+                </div>
+                <div class="shop_content">
+                    <input type="checkbox" checked>
+                    <div class="good_info">
+                        <img src="http://vp2.mbsimg.com/ProductImg/97/1903/large/970156700-CL01-01-L.jpg" alt="">
+                        <p>夏装短袖t恤女韩版修身显瘦V领打底衫上衣HBF1004</p>
+                        <div>
+                            <p>品牌:索然</p>
+                            <p>尺寸:S</p>
+                            <p>颜色:粉色</p>
+                        </div>
+                    </div>
+                    <p class="single_price">￥118</p>
+                    <div class="number">
+                        <button class="del">-</button>
+                        <input type="text" class="good_num" value="1">
+                        <button class="add">+</button>
+                    </div>
+                    <p class="total_price">￥118</p>
+                    <div class="opecation">
+                        <button class="edit">修改</button>
+                        <button class="remove">移除</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="deal">
+            <div>
+                <p>商品数量总计: <span class="sum">3</span><span>件 折后商品金额总计</span><span class="total_price">￥224.00</span>
+                </p>
+            </div>
+            <div>
+                <button>去结算</button>
+            </div>
+        </div>
+    </main>
+
+    <section id="list"></section>
+    <footer id='footer'></footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $('#list').load("http://10.31.155.75/mbs/src/session.html");
+        $('#footer').load("http://10.31.155.75/mbs/src/index_footer.html");
+    </script>
+</body>
+
+</html>
