@@ -1,1 +1,0 @@
-"use strict";define(["jquery"],function(){return{render:function(){}}});

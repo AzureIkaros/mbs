@@ -380,7 +380,6 @@
 
 /* 商品详情信息 */
 #detail main {
-    height: 650px;
     margin-top: 30px;
 }
 #detail main article{
@@ -415,7 +414,6 @@
 #detail main aside {
     float: left;
     width: 600px;
-    height: 1000px;
     padding-left: 50px;
 }
 #detail main aside h2 {
@@ -444,7 +442,7 @@
 }
 
 #detail main aside .color{
-    width: 360px;
+    width: 394px;
     height: 190px;
     margin-top: 40px;
 }
@@ -454,10 +452,17 @@
     color: #666;
     font-size: 12px;
 }
-#detail main aside .size div{
+#detail main aside .size {
     width: 360px;
-    height: 50px;
-    
+    height: 70px;
+    margin-top: 20px;
+}
+#detail main aside .size div{
+    float: left;
+    width: 320px;
+}
+#detail main aside .num{
+    margin-top: 10px;
 }
 #detail main aside .num div{
     width: 77px;

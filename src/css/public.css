@@ -221,6 +221,12 @@ footer div:last-child img {
     overflow: hidden;
     height: 68px;
 }
+#detail main article div:last-child .list ul {
+    list-style: none;
+}
+#detail main article div:last-child .list li {
+    float: left;
+}
 #detail main article div:last-child .list img{
     width: 50px;
     height: 68px;
@@ -262,9 +268,9 @@ footer div:last-child img {
 /* 颜色 */
 #detail main aside .color .choose {
     float: left;
-    width: 324px;
+    width: 360px;
     height: 190px;
-    overflow: hidden;
+    overflow-y: auto;
 }
 #detail main aside .color .choose .color_content{
     width: 94px;
@@ -290,13 +296,16 @@ footer div:last-child img {
 #detail main aside .size div span{
     width: 43px;
     height: 28px;
-    border: 1px solid #d4013c;
+    border: 1px solid #ccc;
+    /* d4013c */
     color: #797979;
     font-size: 12px;
     text-align: center;
     line-height: 28px;
     display: inline-block;
     margin-right: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
 }
 
 /* 购物车 */
