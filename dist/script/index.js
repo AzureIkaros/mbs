@@ -1,0 +1,1 @@
+"use strict";require(["config"],function(){require(["jquery","render","index_effect"],function(e,o,r){require(["lazyload"],function(){e("#list").load("http://10.31.155.75/mbs/src/session.html"),e("#footer").load("http://10.31.155.75/mbs/src/index_footer.html"),o.index_render(),r.louti(),r.isLogin(),r.logout(),r.search(),r.searchGood(),r.showChat()})})});
