@@ -219,46 +219,45 @@ footer div:last-child img {
     width: 334px;
     padding: 0 10px;
     overflow: hidden;
-    height: 68px;
+    height: 70px;
+    position: relative;
 }
 #detail main article div:last-child .list ul {
     list-style: none;
+    width: 1200px;
+    position: absolute;
+    left:0px;
 }
 #detail main article div:last-child .list li {
     float: left;
+    padding: 0 5px;
 }
 #detail main article div:last-child .list img{
     width: 50px;
     height: 68px;
     float: left;
-    padding: 0 5px;
     cursor: pointer;
 }
-/* 小图和小放 */
-#detail main article #small_pic {
-    width: 380px;
-    height: 514px;
+#detail main article div:last-child .list .active{
+    border: 1px solid red;
 }
+/* 小图和小放 */
 #detail main article #smallf {
-    width: 100px;
-    height: 100px;
     background: greenyellow;
     opacity: 0.5;
     position: absolute;
-    top: 0;
-    left: 0;
+    display: none;
 }
 /* 大图和大放 */
 #detail main article .bigf{
     width: 380px;
     height: 514px;
     position: absolute;
-    background: red;
     z-index: 100;
     top: 30px;
     left: 400px;
     overflow: hidden;
-    visibility: hidden;
+    display: none;
 }
 #detail main article #big_pic{
     position: absolute;
@@ -280,6 +279,9 @@ footer div:last-child img {
     float: left;
     margin-top: 10px;
     cursor: pointer;
+}
+#detail main aside .color .choose .active{
+    border: 2px solid #eb0067;
 }
 #detail main aside .color .choose .color_content img {
     width: 28px;
@@ -307,7 +309,9 @@ footer div:last-child img {
     margin-bottom: 5px;
     cursor: pointer;
 }
-
+#detail main aside .size div .active{
+    border: 1px solid #d4013c;
+}
 /* 购物车 */
 #cart main .good_content {
     width: 1120px;

@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/public.css">
+    <script src="http://localhost/mbs/src/script/require.js" defer async='true'
+        data-main="http://localhost/mbs/dist/script/cart"></script>
 </head>
 
 <body id="cart">
@@ -17,9 +19,8 @@
             <img src="http://i1.mbscss.com/img/moonbasa/2014/02/25/logo.jpg" alt="">
             <p>9年品质保证&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;7天无条件退换货&nbsp;&nbsp;&nbsp;&nbsp;|</p>
             <ul>
-                <li>欢迎光临梦芭莎!</li>
-                <li><a href="http://10.31.155.75/mbs/src/login.html">登录</a></li>
-                <li><a href="http://10.31.155.75/mbs/src/register.html">注册</a></li>
+                <li class="login"><a href="http://10.31.155.75/mbs/src/login.html">登录</a></li>
+                <li class="register"><a href="http://10.31.155.75/mbs/src/register.html">注册</a></li>
                 <li><a href="">帮助中心</a></li>
                 <li><a href="">微信</a></li>
                 <li><span
@@ -134,11 +135,6 @@
 
     <section id="list"></section>
     <footer id='footer'></footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>
-        $('#list').load("http://10.31.155.75/mbs/src/session.html");
-        $('#footer').load("http://10.31.155.75/mbs/src/index_footer.html");
-    </script>
 </body>
 
 </html>

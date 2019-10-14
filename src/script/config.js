@@ -1,8 +1,10 @@
 require.config({
     paths:{
-        'jquery':"http://localhost/mbs/src/script/jquery",
+        'jquery':"https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min",
         'jqcookie':"https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min",
-        'lazyload':'http://localhost/mbs/dist/script/jquery.lazyload',
-        'render':'http://localhost/mbs/src/script/render'
+        'lazyload':'https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min',
+        'render':'http://10.31.155.75/mbs/src/script/render',
+        'details_effect':'http://10.31.155.75/mbs/src/script/details_effect',
+        'index_effect':'http://10.31.155.75/mbs/src/script/index_effect'
     }
 })
