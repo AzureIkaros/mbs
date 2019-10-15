@@ -106,7 +106,7 @@ define(['jquery', 'jqcookie'], function ($) {
                 $('.list ul').get(0).style.left = (-index * width + 'px');
             })
         },
-        //添加到购物车
+        //添加到购物车(cookie)
         addCart: function () {
             $('.addCart').on('click', function () {
                 if ($.cookie('sid')) {
@@ -114,45 +114,62 @@ define(['jquery', 'jqcookie'], function ($) {
                     let color = $.cookie('color').split(',');
                     let size = $.cookie('size').split(',');
                     let num = $.cookie('num').split(',');
-                    let store = $.cookie('store').split(',');
-                    $.each(sid, function (index, value) {
-                        console.log(value, sid)
-                        if (location.search.replace('?sid=', '') == value) {
-                            if (color[index] != $('.color .active span').html() && size[index] == $('.size .active').html()) {
-
-                            } else if (size[index] != $('.size .active').html() && color[index] == $('.color .active span').html()) {
-                                alert('尺寸不同')
-                            } else if (size[index] != $('.size .active').html() && color[index] != $('.color .active span').html()) {
-                                alert('全都不同')
-                            } else {
-                                num[index] = Number(num[index]) + Number($('.num input').val());
-                                $.cookie('num', num, { expires: 7, path: '/' })
+                    let color_flag = false;
+                    let size_flag = false;
+                    let all_flag = false;
+                    let flag = null;
+                    function pushCookie() {
+                        $.cookie('sid', sid, { expires: 7, path: '/' });
+                        $.cookie('color', color, { expires: 7, path: '/' });
+                        $.cookie('size', size, { expires: 7, path: '/' });
+                        $.cookie('num', num, { expires: 7, path: '/' });
+                    }
+                    function dealArr() {
+                        sid.push(location.search.replace('?sid=', ''));
+                        color.push($('.color .active span').html());
+                        size.push($('.size .active').html());
+                        num.push($('.num input').val());
+                    }
+                    $.each(sid,function(index,value){
+                        if(value==location.search.replace('?sid=', '')){
+                            if(color[index]==$('.color .active span').html()){
+                                color_flag = true;
                             }
-                        } else {
-                            alert('id不同')
-                            sid.push(location.search.replace('?sid=', ''));
-                            color.push($('.color .active span').html());
-                            size.push($('.size .active').html());
-                            num.push($('.num input').val());
-                            store.push($('#search #store').html())
-                            console.log(sid,color,size,num,store)
-                            $.cookie('sid',sid, { expires: 7, path: '/' });
-                            $.cookie('color',color, { expires: 7, path: '/' });
-                            $.cookie('size',size, { expires: 7, path: '/' });
-                            $.cookie('num',num, { expires: 7, path: '/' });
-                            $.cookie('stror',store, { expires: 7, path: '/' });
+                            if(size[index]==$('.size .active').html()){
+                                size_flag = true;
+                            }
+                            if(color[index]==$('.color .active span').html()&&size[index]==$('.size .active').html()){
+                                all_flag = true;
+                                color_flag = false;
+                                size_flag = false;
+                                flag = index;
+                                return false;
+                            }
                         }
                     })
-                    // $.cookie('sid',,{ expires: 7, path: '/' });
-                    // $.cookie('color',,{ expires: 7, path: '/' });
-                    // $.cookie('size',,{ expires: 7, path: '/' });
-                    // $.cookie('num',,{ expires: 7, path: '/' });
+                    if (sid.indexOf(location.search.replace('?sid=', ''))!=-1) {
+                        if (color_flag) {
+                            dealArr();
+                            pushCookie();
+                        } else if (size_flag) {
+                            dealArr();
+                            pushCookie();
+                        } else if(all_flag){
+                            num[flag] = Number(num[flag]) + Number($('.num input').val());
+                            $.cookie('num', num, { expires: 7, path: '/' })
+                        }else{
+                            dealArr();
+                            pushCookie();
+                        }
+                    } else {
+                        dealArr();
+                        pushCookie();
+                    }
                 } else {
                     $.cookie('sid', location.search.replace('?sid=', ''), { expires: 7, path: '/' });
                     $.cookie('color', $('.color .active span').html(), { expires: 7, path: '/' });
                     $.cookie('size', $('.size .active').html(), { expires: 7, path: '/' });
                     $.cookie('num', $('.num input').val(), { expires: 7, path: '/' });
-                    $.cookie('store', $('#search #store').html(), { expires: 7, path: '/' });
                 }
             })
         }

@@ -330,14 +330,18 @@ footer div:last-child img {
 }
 #cart main .good_content .shop_content{
     height: 67px;
+    position: relative;
 }
 #cart main .good_content .shop_content>input{
-    float: left;
-    margin: 27px 0 0 54px;
+    position: absolute;
+    left:50px;
+    top:25px;
 }
 #cart main .good_content .shop_content .good_info{
-    float: left;
-    margin: 7px 0 0 20px;
+    position: absolute;
+    left:96px;
+    top: 7px;
+    width: 386px;
 }
 #cart main .good_content .shop_content .good_info img{
     width: 39px;
@@ -352,16 +356,18 @@ footer div:last-child img {
     margin: 10px 0 0 18px;
 }
 #cart main .good_content .shop_content .single_price{
-    float: left;
     color: #000;
     font-size: 12px;
-    margin: 28px 0 0 145px;
+    position: absolute;
+    left: 570px;
+    top: 27px;
 }
 #cart main .good_content .shop_content .number{
     width: 74px;
     height: 28px;
-    float: left;
-    margin: 20px 0 0 80px;
+    position: absolute;
+    left:683px;
+    top: 21px;
 }
 #cart main .good_content .shop_content .number input{
     width: 30px;
@@ -384,14 +390,16 @@ footer div:last-child img {
     cursor: pointer;
 }
 #cart main .good_content .shop_content .total_price{
-    float: left;
     color: #000;
     font-size: 12px;
-    margin: 28px 0 0 80px;
+    position: absolute;
+    right: 246px;
+    top: 27px;
 }
 #cart main .good_content .shop_content .opecation{
-    margin: 13px 0 0 115px;
-    float: left;
+    position: absolute;
+    top: 22px;
+    right: 95px;
 }
 #cart main .good_content .shop_content .opecation button{
     border: 0;

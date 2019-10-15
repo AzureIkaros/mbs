@@ -243,6 +243,9 @@
     width: 1208px;
     height: 46px;
 }
+#main section{
+    overflow: hidden;
+}
 #main ul li{
     width: 137px;
     height: 44px;

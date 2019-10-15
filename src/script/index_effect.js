@@ -3,8 +3,9 @@ define(['jquery', 'jqcookie'], function ($) {
         //楼梯效果
         louti: function () {
             $('#main section').on('click', function (ev) {
-                if (ev.target.nodeName == "A") {
-                    $(document).scrollTop($('#main section').eq($(ev.target).parent().index()).offset().top)
+                if (ev.target.nodeName == "A") {//$('#main section').eq($(ev.target).parent().index()).offset().top
+                    let top = $('#main section').eq($(ev.target).parent().index()).offset().top;
+                    $('html,body').animate({scrollTop:top},500)
                 }
             });
         },

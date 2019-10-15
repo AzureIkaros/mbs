@@ -1,1 +1,1 @@
-"use strict";
+"use strict";require(["config"],function(){require(["jquery"],function(r){require(["render","cart_effect","jqcookie"],function(e,t){r("#list").load("http://10.31.155.75/mbs/src/session.html"),r("#footer").load("http://10.31.155.75/mbs/src/index_footer.html"),e.cart_render(t.setNum,t.isCheck,t.setCheck),t.clickEvent(),t.checkAll()})})});
