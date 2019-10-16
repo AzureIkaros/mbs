@@ -51,6 +51,7 @@ a {
 /* 登录和注册表单的公共样式 */
 #login_register #main form {
     padding: 0 36px 0 38px;
+    margin-top: 40px;
 }
 #login_register #main form .input_1_img{
     background-position-y: -50px;
@@ -341,7 +342,7 @@ footer div:last-child img {
     position: absolute;
     left:96px;
     top: 7px;
-    width: 386px;
+    width: 430px;
 }
 #cart main .good_content .shop_content .good_info img{
     width: 39px;
@@ -354,6 +355,10 @@ footer div:last-child img {
     color: #5b5b5b;
     font-size: 12px;
     margin: 10px 0 0 18px;
+}
+#cart main .good_content .shop_content .good_info div{
+    width: 380px;
+    height: 20px;
 }
 #cart main .good_content .shop_content .single_price{
     color: #000;
@@ -420,6 +425,20 @@ footer div:last-child img {
     font-size: 12px;
     width: 300px;
     margin-left: 900px;
+}
+#cart main .deal .empty{
+    font-size: 18px;
+    margin-left: 350px;
+    margin-top: 80px;
+    width: 400px;
+    color: #555;
+}
+#cart main .deal a{
+    font-size: 18px;
+    margin-left: 477px;
+    text-decoration: underline;
+    margin-top: 10px;
+    float: left;
 }
 #cart main .deal p .total_price{
     font-size: 16px;

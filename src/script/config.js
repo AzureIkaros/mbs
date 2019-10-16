@@ -6,6 +6,7 @@ require.config({
         'render':'./render',
         'details_effect':'./details_effect',
         'index_effect':'./index_effect',
-        'cart_effect':'./cart_effect'
+        'cart_effect':'./cart_effect',
+        'register_effect':'./register_effect'
     }
 })

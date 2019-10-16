@@ -3,11 +3,11 @@
     if( (isset($_POST['email']) || isset($_POST['phone'])) ){
         if(isset($_POST['email'])){
             $email = $_POST['email'];
-            $result = $conn->query("select * from userinfo where email={$email}");
+            $result = $conn->query("select * from userinfo where email='{$email}'");
         }
         if(isset($_POST['phone'])){
             $phone = $_POST['phone'];
-            $result = $conn->query("select * from userinfo where phone={$phone}");
+            $result = $conn->query("select * from userinfo where phone='{$phone}'");
         }
         if($result->fetch_assoc()){
             echo true;

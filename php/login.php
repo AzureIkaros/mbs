@@ -5,7 +5,7 @@
         if(isset($_POST['email'])){
             $email = $_POST['email'];
             $pass = sha1($_POST['password']);
-            $result = $conn->query("select * from userinfo where email={$email}")->fetch_assoc();
+            $result = $conn->query("select * from userinfo where email='{$email}'")->fetch_assoc();
             if($pass == $result['password']){
                 echo $pass;
             }else{

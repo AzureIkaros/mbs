@@ -5,7 +5,7 @@
         if(isset($_POST['email'])){
             $email = $_POST['email'];
             $pass = $_POST['password'];
-            $result = $conn->query("select * from userinfo where email={$email}")->fetch_assoc();
+            $result = $conn->query("select * from userinfo where email='{$email}'")->fetch_assoc();
             if($pass == $result['password']){
                 echo true;
             }else{
@@ -15,7 +15,7 @@
         if(isset($_POST['phone'])){
             $phone = $_POST['phone'];
             $pass = $_POST['password'];
-            $result = $conn->query("select * from userinfo where phone={$phone}")->fetch_assoc();
+            $result = $conn->query("select * from userinfo where phone='{$phone}'")->fetch_assoc();
             if($pass == $result['password']){
                 echo true;
             }else{

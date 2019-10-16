@@ -51,6 +51,7 @@ define(['jquery'], function () {
             }
             obj.html(str);
         },
+        //详情页的渲染
         details_render: function () {
             let self = this;
             let sid = location.search.replace('?', '');
@@ -60,6 +61,7 @@ define(['jquery'], function () {
             }).done(function (data) {
                 $('#store').html(data.store);
                 $('#small_pic').attr({ src: data.small_url });
+                $('title').html(data.title)
                 $('#big_pic').attr({ src: data.small_url.replace('large', 'huge').replace('L.jpg', 'H.jpg') });
                 $('#detail main article .list ul').html((function (data) {
                     let str = '';
@@ -118,7 +120,12 @@ define(['jquery'], function () {
                         }
                     })
                     return str;
-                })(data))
+                })(data));
+                $(function () { //页面加载完成
+                    $("img.lazy").lazyload({
+                        effect: "fadeIn" //效果方式
+                    });
+                });
             })
         },
         //购物车页面的渲染
@@ -185,7 +192,7 @@ define(['jquery'], function () {
                             </p>
                         </div>
                         <div>
-                            <button>去结算</button>
+                            <button class='settle'>去结算</button>
                         </div>
                         `);
                     })
@@ -193,6 +200,11 @@ define(['jquery'], function () {
                     setCheck();
                     setNum();
                 })
+            }else{
+                $('.deal').html(`
+                    <p class='empty'>您的购物车空空如也,快去挑选一些商品吧</p>
+                    <a href='http://10.31.155.75/mbs/dist/'>去首页</a>
+                `);
             }
         }
     }

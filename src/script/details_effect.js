@@ -123,6 +123,7 @@ define(['jquery', 'jqcookie'], function ($) {
                         $.cookie('color', color, { expires: 7, path: '/' });
                         $.cookie('size', size, { expires: 7, path: '/' });
                         $.cookie('num', num, { expires: 7, path: '/' });
+                        alert('添加成功');
                     }
                     function dealArr() {
                         sid.push(location.search.replace('?sid=', ''));
@@ -148,16 +149,17 @@ define(['jquery', 'jqcookie'], function ($) {
                         }
                     })
                     if (sid.indexOf(location.search.replace('?sid=', ''))!=-1) {
-                        if (color_flag) {
+                        if (color_flag) {//颜色不同
                             dealArr();
                             pushCookie();
-                        } else if (size_flag) {
+                        } else if (size_flag) {//尺码不同
                             dealArr();
                             pushCookie();
-                        } else if(all_flag){
+                        } else if(all_flag){//都不同
                             num[flag] = Number(num[flag]) + Number($('.num input').val());
-                            $.cookie('num', num, { expires: 7, path: '/' })
-                        }else{
+                            $.cookie('num', num, { expires: 7, path: '/' });
+                            alert('添加成功');
+                        }else{//都相同
                             dealArr();
                             pushCookie();
                         }
@@ -165,11 +167,12 @@ define(['jquery', 'jqcookie'], function ($) {
                         dealArr();
                         pushCookie();
                     }
-                } else {
+                } else {//第一次添加商品
                     $.cookie('sid', location.search.replace('?sid=', ''), { expires: 7, path: '/' });
                     $.cookie('color', $('.color .active span').html(), { expires: 7, path: '/' });
                     $.cookie('size', $('.size .active').html(), { expires: 7, path: '/' });
                     $.cookie('num', $('.num input').val(), { expires: 7, path: '/' });
+                    alert('添加成功');
                 }
             })
         }
