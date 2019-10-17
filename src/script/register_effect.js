@@ -15,6 +15,17 @@ define(['jquery', 'jqcookie'], function () {
         code_flag: false,
         password_flag: false,
         password_second_flag: false,
+        init:function(){
+            $('#footer').load("login_footer.html");
+            $.cookie('url', location.href, { expires: 7, path: '/' });
+            this.code.html(this.getCode());
+            this.changeCode();
+            this.checkPhoneOrEmail();
+            this.checkCode();
+            this.checkPassword();
+            this.checkPasswordAgain();
+            this.submitData();
+        },
         getRandom: function () {//获取英文和数字的随机asc码(48-57,65-90,97-122)
             let str = String.fromCharCode(Math.round(Math.random() * (122 - 47)) + 47);
             return /[0-9a-zA-Z]/.test(str) ? str : this.getRandom();
@@ -150,7 +161,7 @@ define(['jquery', 'jqcookie'], function () {
                             if (data) {
                                 alert("注册成功,1秒后跳转到登录界面");
                                 setTimeout(function () {
-                                    location.href = "http://10.31.155.75/mbs/src/login.html";
+                                    location.href = "login.html";
                                 }, 1000);
                             }
                         })

@@ -1,4 +1,4 @@
-define(['jquery', 'jqcookie'], function ($) {
+define(['./render.js','./index_effect.js','jquery', 'jqcookie'], function (render,index,$) {
     return {
         small_pic: $('#small_pic'),
         small_box: $('#small_box'),
@@ -6,6 +6,21 @@ define(['jquery', 'jqcookie'], function ($) {
         bigf: $('.bigf'),
         big_pic: $('#big_pic'),
         list: $('article .list'),
+        init:function(){
+            $('#list').load("session.html");
+            $('#footer').load("index_footer.html");
+            $.cookie('url', location.href, { expires: 7, path: '/' });
+            render.details_render();
+            this.fdj();
+            this.clickChange();
+            this.chooseGood();
+            this.chooseSize();
+            this.changeNum();
+            this.slideGood();
+            this.addCart();
+            index.changeHead();
+            index.logout();
+        },
         //放大镜效果
         fdj: function () {
             const self = this;

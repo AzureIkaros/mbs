@@ -1,5 +1,17 @@
-define(['jquery', 'jqcookie'], function ($) {
+define(['./render.js','jquery', 'jqcookie','lazyload'], function (render,$) {
     return {
+        init:function(){
+            this.louti();
+            this.isLogin();
+            this.logout();
+            this.search();
+            this.searchGood();
+            this.showChat();
+            this.rightSidebar();
+            this.weChat();
+            this.loginBox();
+            render.index_render();
+        },
         //楼梯效果
         louti: function () {
             $('#main section').on('click', function (ev) {
@@ -18,7 +30,7 @@ define(['jquery', 'jqcookie'], function ($) {
                 $.ajax({
                     type: 'post',
                     data: `${type}=${$.cookie('username')}&password=${$.cookie('password')}`,
-                    url: 'http://10.31.155.75/mbs/php/check_login.php'
+                    url: '../php/check_login.php'
                 }).done(function (data) {
                     if (data) {
                         $.cookie('flag', 1, { expires: 7, path: '/' });
@@ -35,12 +47,12 @@ define(['jquery', 'jqcookie'], function ($) {
         //若登陆则改变头部信息
         changeHead: function () {
             if (+$.cookie('flag')) {
-                $('.login').html(`<a href='http://10.31.155.75/mbs/dist/login.html'>欢迎您,${$.cookie('username')}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                $('.login').html(`<a href='login.html'>欢迎您,${$.cookie('username')}</a>&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href='javascript:;'>我的梦芭莎</a>`);
                 $('.register').html(`<a href="javascript:;" class='logout'>退出</a>`);
             } else {
-                $('.login').html(`<a href="http://10.31.155.75/mbs/dist/login.html" class="loginaddress">登录</a>`);
-                $('.register').html(`<a href="http://10.31.155.75/mbs/dist/register.html">注册</a>`);
+                $('.login').html(`<a href="login.html" class="loginaddress">登录</a>`);
+                $('.register').html(`<a href="register.html">注册</a>`);
             }
         },
         //退出
@@ -129,20 +141,19 @@ define(['jquery', 'jqcookie'], function ($) {
             }, function () {
                 $('.login_box').hide();
             });
-            if(+$.cookie('num')){
+            if($.cookie('num')){
                 $('.shopcount').html($.cookie('num').split(',').map(function(value){return +value}).reduce(function(prve,next){return prve+next}));
             }
-            
-            // $('#left_sidebar').on('mouseover',function(ev){
-            //     if($(ev.target).is('.cartList') || $(ev.target).is('.sideBar') || $(ev.target).is('.sideBar p')){
-            //         $('.cartList').show();
-            //     }else{
-            //         $('.cartList').hide();
-            //     }
-            // })
-            // $('.cartList').on('mouseout',function(){
-            //     $('.cartList').hide();
-            // })
+            $('#left_sidebar').on('mouseover',function(ev){
+                if($(ev.target).parents('section').is('.cartList') || $(ev.target).is('.sideBar') || $(ev.target).is('.sideBar p')){
+                    $('.cartList').show();
+                }else{
+                    $('.cartList').hide();
+                }
+            })
+            $('.cartList').on('mouseout',function(){
+                $('.cartList').hide();
+            })
         }
     }
 })

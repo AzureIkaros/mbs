@@ -1,5 +1,16 @@
-define(['jquery', 'jqcookie'], function ($) {
+define(['./index_effect.js','./render.js','jquery', 'jqcookie'], function (index,render,$) {
     return {
+        init:function(){
+            $('#list').load("session.html");
+            $('#footer').load("index_footer.html");
+            $.cookie('url', location.href, { expires: 7, path: '/' });
+            render.cart_render(this.setNum,this.isCheck,this.setCheck);
+            this.clickEvent();
+            this.checkAll();
+            this.settleMent();
+            index.changeHead();
+            index.logout();
+        },
         clickEvent: function () {
             let self = this;
             $('.good_content').on('click', function (ev) {
@@ -174,7 +185,7 @@ define(['jquery', 'jqcookie'], function ($) {
                             alert('您还没有选择商品哦!请您先选择商品')
                         }
                     } else {
-                        confirm('您还没有登录,请先登录') ? location.href = 'http://10.31.155.75/mbs/dist/login.html' : undefined;
+                        confirm('您还没有登录,请先登录') ? location.href = 'login.html' : undefined;
                     }
                 }
             })

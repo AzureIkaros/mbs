@@ -3,7 +3,7 @@ define(['jquery'], function () {
         index_render: function () {
             let self = this;
             $.ajax({
-                url: 'http://10.31.155.75/mbs/php/data.php',
+                url: '../php/data.php',
                 dataType: 'json'
             }).done(function (data) {
                 self.chooseRender(data, "文艺女装", $('#main .literature'), 0);
@@ -14,6 +14,7 @@ define(['jquery'], function () {
                 self.chooseRender(data, "舒适内衣", $('#main .underwear'), 5);
                 self.chooseRender(data, "品质男装", $('#main .mens'), 6);
                 self.chooseRender(data, "箱包品类", $('#main .package'), 7);
+                self.indexCart(data);
                 $(function () { //页面加载完成
                     $("img.lazy").lazyload({
                         effect: "fadeIn" //效果方式
@@ -24,11 +25,11 @@ define(['jquery'], function () {
         //首页选择分类渲染
         chooseRender: function (data, type, obj, index) {
             let str = '<ul>';
-            let arr = ["文艺女装","优雅女装","活泼女装","简约女装","度假女装","舒适内衣","品质男装","箱包品类"];
-            $.each(arr,function(index1,value){
-                if(index==index1){
+            let arr = ["文艺女装", "优雅女装", "活泼女装", "简约女装", "度假女装", "舒适内衣", "品质男装", "箱包品类"];
+            $.each(arr, function (index1, value) {
+                if (index == index1) {
                     str += `<li><a href="javascript:void(0);" class='active'>${value}</a></li>`;
-                }else{
+                } else {
                     str += `<li><a href="javascript:void(0);">${value}</a></li>`;
                 }
             })
@@ -37,7 +38,7 @@ define(['jquery'], function () {
                 if (i.type === type) {
                     str += `
                     <div class="good">
-                    <a href="http://10.31.155.75/mbs/dist/details.html?sid=${i.sid}" target='_blank'>
+                    <a href="details.html?sid=${i.sid}" target='_blank'>
                         <img class="lazy"
                             data-original="${i.small_url}"
                             width="225" height="304">
@@ -56,7 +57,7 @@ define(['jquery'], function () {
             let self = this;
             let sid = location.search.replace('?', '');
             $.ajax({
-                url: `http://10.31.155.75/mbs/php/check_good.php?${sid}`,
+                url: `../php/check_good.php?${sid}`,
                 dataType: 'json'
             }).done(function (data) {
                 $('#store').html(data.store);
@@ -129,16 +130,16 @@ define(['jquery'], function () {
             })
         },
         //购物车页面的渲染
-        cart_render: function (setNum,isCheck,setCheck) {
+        cart_render: function (setNum, isCheck, setCheck) {
             if ($.cookie('sid')) {
-                let onlysid = Array.from(new Set($.cookie('sid').split(','))).map(function(value){return +value}).sort(function(a,b){return a - b});
+                let onlysid = Array.from(new Set($.cookie('sid').split(','))).map(function (value) { return +value }).sort(function (a, b) { return a - b });
                 let sid = $.cookie('sid').split(',');
                 let color = $.cookie('color').split(',');
                 let size = $.cookie('size').split(',');
                 let num = $.cookie('num').split(',');
                 $.ajax({
                     //获取当前选中的商品
-                    url: `http://10.31.155.75/mbs/php/cart.php?sid=${onlysid}`,//
+                    url: `../php/cart.php?sid=${onlysid}`,//
                     type: 'get',
                     dataType: 'json'
                 }).done(function (data) {
@@ -150,9 +151,9 @@ define(['jquery'], function () {
                             <p>以下商品由 <span>${data[index1].store}</span> 发货 免配送费</p>
                         </div>
                         `;
-                        $.each(sid,function(index2,value2){
-                            if(value1 == value2){
-                                total += data[index1].new_price*num[index1];
+                        $.each(sid, function (index2, value2) {
+                            if (value1 == value2) {
+                                total += data[index1].new_price * num[index1];
                                 str += `
                                 <div class="shop_content">
                                     <input type="checkbox" class="choose">
@@ -171,7 +172,7 @@ define(['jquery'], function () {
                                         <input type="text" class="good_num" value="${num[index2]}">
                                         <button class="add">+</button>
                                     </div>
-                                    <p class="total_price">￥${data[index1].new_price*num[index2]}</p>
+                                    <p class="total_price">￥${data[index1].new_price * num[index2]}</p>
                                     <div class="opecation">
                                         <button class="remove">移除</button>
                                     </div>
@@ -180,10 +181,10 @@ define(['jquery'], function () {
                             }
                         })
                         str += '</aside>'
-                        $(".good_content").html($(".good_content").html()+str);
+                        $(".good_content").html($(".good_content").html() + str);
                         let sum = 0;
                         // console.log(num)
-                        $.each(num,function(index,value){sum+=(+value)});
+                        $.each(num, function (index, value) { sum += (+value) });
                         $('.deal').html(`
                         <div>
                             <p>商品数量总计: <span class="sum"></span>
@@ -200,11 +201,63 @@ define(['jquery'], function () {
                     setCheck();
                     setNum();
                 })
-            }else{
+            } else {
                 $('.deal').html(`
                     <p class='empty'>您的购物车空空如也,快去挑选一些商品吧</p>
-                    <a href='http://10.31.155.75/mbs/dist/'>去首页</a>
+                    <a href='index.html'>去首页</a>
                 `);
+            }
+        },
+        //首页购物车渲染
+        indexCart: function (data) {
+            if ($.cookie('sid')) {
+                let onlysid = Array.from(new Set($.cookie('sid').split(','))).map(function (value) { return +value }).sort(function (a, b) { return a - b });
+                let sid = $.cookie('sid').split(',');
+                let color = $.cookie('color').split(',');
+                let size = $.cookie('size').split(',');
+                let num = $.cookie('num').split(',');
+                let str = '';
+                let total_price = 0;
+                $.each(onlysid, function (index1, value1) {
+                    str += `
+                        <div class="good_content">
+                        <p class="store">${data[index1].title}</p>
+                    `;
+                    $.each(sid, function (index2, value2) {
+                        if (value1 == value2) {
+                            total_price += num[index2] * data[index1].new_price;
+                            str += `
+                                <div class="shop_content">
+                                <div class="onegood">
+                                    <img src="${data[index1].small_url}" alt="">
+                                    <div class="info">
+                                        <p class="shoptitle">${data[index1].title}</p>
+                                        <div class="colorinfo">
+                                            <span>${size[index2]}</span>
+                                            <span>${color[index2]}</span>
+                                        </div>
+                                        <div class="priceinfo">
+                                            <span class="goodprice">￥${data[index1].new_price}</span>
+                                            <span class="goodnum">*${num[index2]}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                        `;
+                        }
+                    });
+                    str += `</div>`;
+                });
+                $('.indexCart').html(str);
+                $('.counting').html(`
+                <div>
+                <span class="goodNum">共${num.map(function(value){return +value}).reduce(function(prve,next){return prve+next})}件商品</span>
+                <span class="goodPrice">￥${total_price}</span>
+                </div>
+                <a href="cart.html" class="totalPrice">去购物车结算</a>
+                `);
+            } else {
+                $('.indexCart').html('');
+                $('.counting').html('');
             }
         }
     }

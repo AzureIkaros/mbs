@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/public.css">
-    <script src="https://cdn.bootcss.com/require.js/2.3.6/require.min.js" defer async='true'
-        data-main="script/index"></script>
+    <script src="https://cdn.bootcss.com/require.js/2.3.6/require.min.js" data-main="script/require.config.js" id="current-page" target-module="script/index_effect.js" defer async="true" ></script>
 </head>
 
 <body id="index">
@@ -37,37 +36,19 @@
             <area shape="rect" coords="18,500,88,524" href="#m" pos="6/44/2/13">
             <area shape="rect" coords="33,546,78,583" href="#" pos="6/44/2/14"> </map>
     </div>
-
     <section id="left_sidebar">
         <section class="cartList">
             <p class="title">购物车</p>
-            <section class="indexCart">
-                <div class="good_content">
-                    <p class="store">岂非</p>
-                    <div class="shop_content">
-                        <div class="onegood">
-                            <img src="http://vp1.mbsimg.com/ProductImg/97/1902/middle/970157351-CL02-01-M.jpg" alt="">
-                            <div class="info">
-                                <p class="shoptitle">2019秋季新款复古优雅立领系带收腰显瘦单排扣衬衫连衣裙女</p>
-                                <div class="colorinfo">
-                                    <span>M</span>
-                                    <span>米色</span>
-                                </div>
-                                <div class="priceinfo">
-                                    <span class="goodprice">￥198</span>
-                                    <span class="goodnum">*1</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <section class="indexCart"></section>
+            <section class="counting">
+                <!--  -->
             </section>
         </section>
         <div id="user">
             <div class="login_box">
                 <img src="http://i0.mbscss.com/img/moonbasa2/member/default-head.jpg" alt="" class='img1'>
-                <a href="http://10.31.155.75/mbs/dist/login.html" class="login_in">登录</a>
-                <a href="http://10.31.155.75/mbs/dist/register.html" class="register_in">注册</a>
+                <a href="login.html" class="login_in">登录</a>
+                <a href="register.html" class="register_in">注册</a>
             </div>
         </div>
         <a href="" class="sideBar">
@@ -99,7 +80,7 @@
                         src="http://i3.mbscss.com/img/moonbasa/2015/04/lyz/0826143318.jpg" style="left:-60px;"></li>
                 <li><a href="javascript:;">收藏梦芭莎</a></li>
                 <li><a href="javascript:;">English</a></li>
-                <li><a href="http://10.31.155.75/mbs/dist/cart.html">购物车</a><span
+                <li><a href="cart.html">购物车</a><span
                         style="background: url(img/cart.png) no-repeat;width: 20px;height: 20px;display: inline-block;"></span>
                 </li>
             </ul>

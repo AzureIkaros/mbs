@@ -1,1 +1,0 @@
-"use strict";require(["config"],function(){require(["jquery","register_effect"],function(e,o){e("#footer").load("http://10.31.155.75/mbs/src/login_footer.html"),e.cookie("url",location.href,{expires:7,path:"/"}),o.code.html(o.getCode()),o.changeCode(),o.checkPhoneOrEmail(),o.checkCode(),o.checkPassword(),o.checkPasswordAgain(),o.submitData()})});

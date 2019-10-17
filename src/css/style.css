@@ -300,16 +300,21 @@ a {
     width: 300px;
     background: #eee;
     left: 36px;
-    /* display: none; */
+    display: none;
 }
 #left_sidebar .cartList .indexCart{
     padding: 15px;
-    background: #fff;
+    background: #eee;
+    overflow-y: auto;
+    height: 500px;
 }
 #left_sidebar .cartList .indexCart .store{
     font-size: 12px;
     border-bottom: 1px solid #ccc;
-    padding-bottom: 15px;
+    /* padding-bottom: 15px; */
+    height: 30px;
+    line-height: 30px;
+    text-indent: 1em;
 }
 #left_sidebar .cartList .title{
     height: 40px;
@@ -327,6 +332,7 @@ a {
 #left_sidebar .cartList .onegood{
     width: 100%;
     padding:15px 0;
+    height: 38px;
 }
 #left_sidebar .cartList img{
     width: 34px;
@@ -336,8 +342,12 @@ a {
 }
 #left_sidebar .cartList .info{
     font-size: 12px;
-    width: 200px;
+    width: 185px;
     float: right;
+}
+#left_sidebar .cartList .good_content{
+    margin-bottom: 10px;
+    background: #fff;
 }
 #left_sidebar .cartList .shoptitle{
     overflow: hidden;
@@ -355,7 +365,44 @@ a {
 #left_sidebar .cartList .priceinfo .goodprice{
     font-weight: bold;
 }
-
+#left_sidebar .cartList .priceinfo .delgood{
+    float: right;
+    cursor: pointer;
+    margin-right: 10px;
+}
+#left_sidebar .counting{
+    position: absolute;
+    bottom: 0;
+    height: 150px;
+    width: 90%;
+    background: #fff;
+    padding: 0 15px;
+}
+#left_sidebar .counting>div{
+    position: absolute;
+    top: 60px;
+    left: 15px;
+    font-size: 12px;
+    width: 90%;
+    height: 20px;
+    line-height: 20px;
+}
+#left_sidebar .counting .goodPrice{
+    float: right;
+    font-size: 16px;
+}
+#left_sidebar .counting .totalPrice{
+    position: absolute;
+    left: 15px;
+    top: 92px;
+    width: 90%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    background: #c10055;
+    color: #fff;
+}
 #left_sidebar .collect{
     width:18px;
     height: 16px;
@@ -405,7 +452,7 @@ a {
     background: #222;
 }
 
-#index section {
+#index header section {
     overflow: visible;
 }
 
