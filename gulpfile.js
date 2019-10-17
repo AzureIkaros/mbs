@@ -10,7 +10,7 @@ const es2015 = require('babel-preset-es2015'); //es6转es5主要模块
 const imagemin = require('gulp-imagemin'); //引入图片压缩模块
 const sourcemaps = require('gulp-sourcemaps'); //引入生成.map文件模块
 const plugins = require('gulp-load-plugins')(); //生成.map文件
-
+const requirejsOptimize = require('gulp-requirejs-optimize');
 
 
 gulp.task('copyfile', function () {
@@ -50,6 +50,10 @@ gulp.task('compilesass', function () {
 
 gulp.task('babel', function () {
     return gulp.src('src/script/*.js')
+        .pipe(requirejsOptimize({
+            optimize: 'none',//此参数允许使用es6的代码。
+            mainConfigFile: 'src/script/config.js'//配置文件
+        }))
         .pipe(babel({//es6转es5
             presets: ['es2015']
         }))
@@ -62,8 +66,16 @@ gulp.task('runimg', function () {
         .pipe(imagemin())
         .pipe(gulp.dest('dist/img/'));
 });
-
+// gulp.task('rjs',function(){
+//     return gulp.src('src/script/*.js')
+//         .pipe(requirejsOptimize({
+//             optimize: 'none',//此参数允许使用es6的代码。
+//             mainConfigFile: 'src/script/config.js'//配置文件
+//         }))
+//         .pipe(gulp.dest('dist/script/'));
+// });
 gulp.task('default',function(){
     watch(['src/font/*','src/*.html','src/css/*.css','src/sass/*.scss','src/script/*.js','src/img/*.{png,jpg,gif,ico}'],gulp.parallel('copyfile','uglifyhtml','uglifycss','compilesass','babel','runimg'));
 });
+
 

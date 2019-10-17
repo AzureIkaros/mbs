@@ -68,6 +68,7 @@ define(['./render.js','./index_effect.js','jquery', 'jqcookie'], function (rende
                     self.small_pic.attr('src', ev.target.src.replace('small', 'large').replace('S.jpg', 'L.jpg'));
                     $('.list img').removeClass('active')
                     $(ev.target).addClass('active');
+                    self.big_pic.attr('src', ev.target.src.replace('small', 'huge').replace('S.jpg', 'H.jpg'));
                 }
             })
         },

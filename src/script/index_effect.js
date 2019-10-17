@@ -1,6 +1,8 @@
 define(['./render.js','jquery', 'jqcookie','lazyload'], function (render,$) {
     return {
         init:function(){
+            $('#list').load("session.html");
+            $('#footer').load("index_footer.html");
             this.louti();
             this.isLogin();
             this.logout();
@@ -15,9 +17,9 @@ define(['./render.js','jquery', 'jqcookie','lazyload'], function (render,$) {
         //楼梯效果
         louti: function () {
             $('#main section').on('click', function (ev) {
-                if (ev.target.nodeName == "A") {//$('#main section').eq($(ev.target).parent().index()).offset().top
+                if (ev.target.nodeName == "A") {
                     let top = $('#main section').eq($(ev.target).parent().index()).offset().top;
-                    $('html,body').animate({ scrollTop: top }, 500)
+                    $('html,body').animate({ scrollTop: top }, 500);
                 }
             });
         },
@@ -47,8 +49,7 @@ define(['./render.js','jquery', 'jqcookie','lazyload'], function (render,$) {
         //若登陆则改变头部信息
         changeHead: function () {
             if (+$.cookie('flag')) {
-                $('.login').html(`<a href='login.html'>欢迎您,${$.cookie('username')}</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href='javascript:;'>我的梦芭莎</a>`);
+                $('.login').html(`<a href='login.html'>欢迎您,${$.cookie('username')}</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='javascript:;'>我的梦芭莎</a>`);
                 $('.register').html(`<a href="javascript:;" class='logout'>退出</a>`);
             } else {
                 $('.login').html(`<a href="login.html" class="loginaddress">登录</a>`);
@@ -64,7 +65,7 @@ define(['./render.js','jquery', 'jqcookie','lazyload'], function (render,$) {
                     $.cookie('flag', '0', { expires: 7, path: '/' });
                     location.reload();
                 }
-            })
+            });
         },
         //搜索框渲染
         search: function () {
@@ -91,9 +92,9 @@ define(['./render.js','jquery', 'jqcookie','lazyload'], function (render,$) {
                     $('.search .result').html('');
                     $(document).on('blur', function () {
                         $('.search .result').html('');
-                    })
+                    });
                 }
-            })
+            });
         },
         //头部效果
         showChat: function () {
